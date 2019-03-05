@@ -19,7 +19,7 @@ public final class RecognizePhoto {
     }
 
     public static int getWidth(java.lang.String json) {
-        return json.
+        
     }
 
     public static boolean isACat(java.lang.String json, double minConfidence) {
