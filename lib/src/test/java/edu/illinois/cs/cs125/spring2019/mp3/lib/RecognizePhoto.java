@@ -32,7 +32,7 @@ public final class RecognizePhoto {
         } catch (Exception e) {
             try {
                 return result.get("width").getAsInt();
-            } catch (Exception e) {
+            } catch (Exception ex) {
                 return 0;
             }
         }
