@@ -22,6 +22,9 @@ public final class RecognizePhoto {
     }
 
     public static int getHeight(java.lang.String json) {
+        if (json == null) {
+            return 0;
+        }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
         return result.get("height").getAsInt();
