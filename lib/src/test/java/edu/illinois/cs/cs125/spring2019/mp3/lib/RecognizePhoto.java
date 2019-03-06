@@ -27,7 +27,7 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-        if (result.get("height") != null) {
+        if (result != null) {
             return result.get("height").getAsInt();
         } else {
             return 0;
