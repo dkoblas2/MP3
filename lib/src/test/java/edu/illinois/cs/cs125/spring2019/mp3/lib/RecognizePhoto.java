@@ -31,7 +31,8 @@ public final class RecognizePhoto {
             return result.get("Height").getAsInt();
         } catch (Exception e) {
             try {
-                return result.get("width").getAsInt();
+                return 2;
+//                return result.get("width").getAsInt();
             } catch (Exception ex) {
                 return 0;
             }
