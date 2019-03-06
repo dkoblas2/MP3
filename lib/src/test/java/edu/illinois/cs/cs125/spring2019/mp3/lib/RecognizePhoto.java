@@ -15,7 +15,7 @@ public final class RecognizePhoto {
 
     public static java.lang.String getCaption(java.lang.String json) {
         if (json == null) {
-            return "";
+            return null;
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
@@ -24,7 +24,7 @@ public final class RecognizePhoto {
 
     public static java.lang.String getFormat(java.lang.String json) {
         if (json == null) {
-            return "";
+            return null;
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
