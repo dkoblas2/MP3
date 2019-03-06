@@ -14,11 +14,21 @@ public final class RecognizePhoto {
 
 
     public static java.lang.String getCaption(java.lang.String json) {
-        return null;
+        if (json == null) {
+            return "";
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        return result.get("description").getAsJsonObject().get("text").getAsString();
     }
 
     public static java.lang.String getFormat(java.lang.String json) {
-        return null;
+        if (json == null) {
+            return "";
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        return result.get("metadata").getAsJsonObject().get("format").getAsString();
     }
 
     public static int getHeight(java.lang.String json) {
@@ -28,15 +38,15 @@ public final class RecognizePhoto {
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
         return result.get("metadata").getAsJsonObject().get("height").getAsInt();
-//        if (result.get("metadata").getAsJsonObject().get("height") != null) {
-//            return result.get("height").getAsInt();
-//        } else {
-//            return 0;
-//        }
     }
 
     public static int getWidth(java.lang.String json) {
-        return 0;
+        if (json == null) {
+            return 0;
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        return result.get("metadata").getAsJsonObject().get("width").getAsInt();
     }
 
     public static boolean isACat(java.lang.String json, double minConfidence) {
