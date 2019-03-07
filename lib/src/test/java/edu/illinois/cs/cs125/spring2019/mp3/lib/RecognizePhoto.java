@@ -50,6 +50,16 @@ public final class RecognizePhoto {
     }
 
     public static boolean isACat(java.lang.String json, double minConfidence) {
+        if (json == null) {
+            return false;
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        for (int i = 0; i < result.get("description").getAsJsonObject().get("tags").getAsJsonArray().size(); i++) {
+            if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().get(i).getAsString().equals("cat")) {
+                return true;
+            }
+        }
         return false;
     }
 
