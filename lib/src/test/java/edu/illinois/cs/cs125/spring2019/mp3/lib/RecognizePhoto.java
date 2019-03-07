@@ -19,7 +19,7 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-        return result.get("description").getAsJsonObject().get("captions").getAsJsonArray().get(0).getAsString();
+        return result.get("description").getAsJsonObject().get("captions").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString();
     }
 
     public static java.lang.String getFormat(java.lang.String json) {
