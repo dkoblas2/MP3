@@ -1,5 +1,6 @@
 package edu.illinois.cs.cs125.spring2019.mp3.lib;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -57,11 +58,13 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-        if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("cat"))
-            && result.get("description").getAsJsonObject().get("captions").getAsJsonArray().get(1).getAsJsonObject().get("confidence").getAsDouble() >= minConfidence) {
-            return true;
+        JsonArray a = result.get("tags").getAsJsonArray();
+        for (int i = 0; i < result.get("description").getAsJsonObject().get("tags").getAsJsonArray().size(); i++) {
+            if (a.get(i).getAsJsonObject().get("name").getAsString().equals("cat")
+                && a.get(i).getAsJsonObject().get("confidence").getAsDouble() >= minConfidence) {
+                return true;
+            }
         }
-        return false;
     }
 
     public static boolean isADog(java.lang.String json, double minConfidence) {
@@ -70,9 +73,10 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
+        JsonArray a = result.get("tags").getAsJsonArray();
         for (int i = 0; i < result.get("description").getAsJsonObject().get("tags").getAsJsonArray().size(); i++) {
-            if (result.get("tags").getAsJsonArray().get(i).getAsJsonObject().get("name").getAsString().equals("dog")
-            && result.get("description").getAsJsonObject().get("tags").getAsJsonArray().get(i).getAsJsonObject().get("confidence").getAsDouble() >= minConfidence) {
+            if (a.get(i).getAsJsonObject().get("name").getAsString().equals("dog")
+                    && a.get(i).getAsJsonObject().get("confidence").getAsDouble() >= minConfidence) {
                 return true;
             }
         }
