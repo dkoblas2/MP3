@@ -64,6 +64,14 @@ public final class RecognizePhoto {
     }
 
     public static boolean isADog(java.lang.String json, double minConfidence) {
+        if (json == null) {
+            return false;
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("dog"))) {
+            return true;
+        }
         return false;
     }
 
