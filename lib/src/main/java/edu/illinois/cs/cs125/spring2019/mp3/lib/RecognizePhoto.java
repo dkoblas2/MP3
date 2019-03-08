@@ -56,6 +56,7 @@ public final class RecognizePhoto {
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
         for (int i = 0; i < result.get("description").getAsJsonObject().get("tags").getAsJsonArray().size(); i++) {
+            System.out.println(result.get("description").getAsJsonObject().get("tags").getAsJsonArray().get(i).toString());
             if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().get(i).toString().equals("cat")) {
                 return true;
             }
