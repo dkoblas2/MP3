@@ -420,12 +420,13 @@ public final class MainActivity extends AppCompatActivity {
         photoView.setImageBitmap(currentBitmap);
         enableOrDisableButtons(true);
 
-        // Reset the displayed fields to default values. For you to finish!
-        /*
-        if (resetInfo) {
+//         Reset the displayed fields to default values. For you to finish!
 
+        if (resetInfo) {
+            enableOrDisableButtons(false);
+            currentBitmap = null;
         }
-        */
+
     }
 
     /**
