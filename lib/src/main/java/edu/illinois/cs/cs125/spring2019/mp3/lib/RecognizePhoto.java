@@ -122,9 +122,9 @@ public final class RecognizePhoto {
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
         try {
-            result = result.get("categories").getAsJsonObject();
+            result = result.get("categories").getAsJsonArray().get(0).getAsJsonObject();
             result = result.get("detail").getAsJsonObject();
-            result = result.get("celebrities").getAsJsonObject();
+            result = result.get("celebrities").getAsJsonArray().get(0).getAsJsonObject();
             if (result.get("name").getAsString().equals("Rick Astley")) {
                 return true;
             }
