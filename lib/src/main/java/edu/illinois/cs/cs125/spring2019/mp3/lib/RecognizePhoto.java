@@ -57,7 +57,8 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-        if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("cat"))) {
+        if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("cat"))
+            && result.get("description").getAsJsonObject().get("tags").getAsJsonObject().get("cat").getAsDouble() >= minConfidence) {
             return true;
         }
         return false;
@@ -69,7 +70,8 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-        if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("dog"))) {
+        if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("dog"))
+            && result.get("description").getAsJsonObject().get("tags").getAsJsonObject().get("dog").getAsDouble() >= minConfidence) {
             return true;
         }
         return false;
