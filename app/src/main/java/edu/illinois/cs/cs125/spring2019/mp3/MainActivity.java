@@ -46,6 +46,9 @@ import java.util.Locale;
 
 import edu.illinois.cs.cs125.spring2019.mp3.lib.RecognizePhoto;
 
+/**
+ * main part of activity.
+ */
 public final class MainActivity extends AppCompatActivity {
     /** Default logging tag for messages from the main activity. */
     private static final String TAG = "MP3:Main";
