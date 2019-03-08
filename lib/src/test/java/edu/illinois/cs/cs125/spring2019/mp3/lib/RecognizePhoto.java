@@ -8,7 +8,7 @@ import jdk.nashorn.internal.parser.JSONParser;
 public final class RecognizePhoto {
 
 
-    public RecognizePhoto () {
+    public RecognizePhoto() {
 
     }
 
