@@ -1,22 +1,20 @@
 package edu.illinois.cs.cs125.spring2019.mp3.lib;
 
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.JsonPrimitive;
 
-import jdk.nashorn.internal.parser.JSONParser;
-
+/**
+ * big class.
+ */
 public final class RecognizePhoto {
 
-
-    public RecognizePhoto() {
-
-    }
-
-
-    public static java.lang.String getCaption(java.lang.String json) {
+    /**
+     * gets caption.
+     * @param json json
+     * @return result
+     */
+    public static java.lang.String getCaption(final java.lang.String json) {
         if (json == null) {
             return null;
         }
@@ -25,7 +23,12 @@ public final class RecognizePhoto {
         return result.get("description").getAsJsonObject().get("captions").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString();
     }
 
-    public static java.lang.String getFormat(java.lang.String json) {
+    /**
+     * gets format.
+     * @param json json
+     * @return result
+     */
+    public static java.lang.String getFormat(final java.lang.String json) {
         if (json == null) {
             return null;
         }
@@ -34,7 +37,12 @@ public final class RecognizePhoto {
         return result.get("metadata").getAsJsonObject().get("format").getAsString();
     }
 
-    public static int getHeight(java.lang.String json) {
+    /**
+     * gets height.
+     * @param json json
+     * @return result
+     */
+    public static int getHeight(final java.lang.String json) {
         if (json == null) {
             return 0;
         }
@@ -43,7 +51,12 @@ public final class RecognizePhoto {
         return result.get("metadata").getAsJsonObject().get("height").getAsInt();
     }
 
-    public static int getWidth(java.lang.String json) {
+    /**
+     * gets width.
+     * @param json json
+     * @return result
+     */
+    public static int getWidth(final java.lang.String json) {
         if (json == null) {
             return 0;
         }
@@ -52,7 +65,13 @@ public final class RecognizePhoto {
         return result.get("metadata").getAsJsonObject().get("width").getAsInt();
     }
 
-    public static boolean isACat(java.lang.String json, double minConfidence) {
+    /**
+     * is it a cat.
+     * @param json json
+     * @param minConfidence double
+     * @return truth
+     */
+    public static boolean isACat(final java.lang.String json, final double minConfidence) {
         if (json == null) {
             return false;
         }
@@ -68,7 +87,13 @@ public final class RecognizePhoto {
         return false;
     }
 
-    public static boolean isADog(java.lang.String json, double minConfidence) {
+    /**
+     * is it a dog.
+     * @param json json
+     * @param minConfidence double
+     * @return truth
+     */
+    public static boolean isADog(final java.lang.String json, final double minConfidence) {
         if (json == null) {
             return false;
         }
@@ -84,7 +109,12 @@ public final class RecognizePhoto {
         return false;
     }
 
-    public static boolean isRick(java.lang.String json) {
+    /**
+     * is it a rick.
+     * @param json json
+     * @return truth
+     */
+    public static boolean isRick(final java.lang.String json) {
         return false;
     }
 
