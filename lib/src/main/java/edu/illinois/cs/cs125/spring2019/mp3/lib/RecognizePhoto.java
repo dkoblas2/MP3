@@ -65,6 +65,7 @@ public final class RecognizePhoto {
                 return true;
             }
         }
+        return false;
     }
 
     public static boolean isADog(java.lang.String json, double minConfidence) {
@@ -80,7 +81,6 @@ public final class RecognizePhoto {
                 return true;
             }
         }
-
         return false;
     }
 
