@@ -116,7 +116,22 @@ public final class RecognizePhoto {
      * @return truth
      */
     public static boolean isRick(final java.lang.String json) {
-        return true;
+        if (json == null) {
+            return false;
+        }
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        try {
+            result = result.get("categories").getAsJsonObject();
+            result = result.get("detail").getAsJsonObject();
+            result = result.get("celebrities").getAsJsonObject();
+            if (result.get("name").getAsString().equals("Rick Astley")) {
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
     }
 
 
