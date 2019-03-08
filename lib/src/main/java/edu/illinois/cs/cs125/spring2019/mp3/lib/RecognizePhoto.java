@@ -1,7 +1,9 @@
 package edu.illinois.cs.cs125.spring2019.mp3.lib;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 
 import jdk.nashorn.internal.parser.JSONParser;
 
@@ -56,8 +58,7 @@ public final class RecognizePhoto {
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
         for (int i = 0; i < result.get("description").getAsJsonObject().get("tags").getAsJsonArray().size(); i++) {
-            System.out.println(result.get("description").getAsJsonObject().get("tags").getAsJsonArray().get(i).toString());
-            if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().get(i).toString().equals("cat")) {
+            if (result.get("description").getAsJsonObject().get("tags").getAsJsonArray().contains(new JsonPrimitive("cat"))) {
                 return true;
             }
         }
