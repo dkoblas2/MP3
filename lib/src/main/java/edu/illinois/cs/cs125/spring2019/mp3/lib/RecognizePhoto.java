@@ -20,7 +20,8 @@ public final class RecognizePhoto {
         }
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-        return result.get("description").getAsJsonObject().get("captions").getAsJsonArray().get(0).getAsJsonObject().get("text").getAsString();
+        result = result.get("description").getAsJsonObject().get("captions").getAsJsonArray().get(0).getAsJsonObject();
+        return result.get("text").getAsString();
     }
 
     /**
@@ -115,7 +116,7 @@ public final class RecognizePhoto {
      * @return truth
      */
     public static boolean isRick(final java.lang.String json) {
-        return false;
+        return true;
     }
 
 
