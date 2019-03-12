@@ -341,12 +341,12 @@ public final class MainActivity extends AppCompatActivity {
         if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
             cat.setVisibility(View.VISIBLE);
         } else {
-            cat.setVisibility(View.INVISIBLE);
+            cat.setVisibility(View.GONE);
         }
         if (RecognizePhoto.isADog(jsonResult, RECOGNITION_THRESHOLD)) {
             dog.setVisibility(View.VISIBLE);
         } else {
-            dog.setVisibility(View.INVISIBLE);
+            dog.setVisibility(View.GONE);
         }
 
     }
@@ -444,8 +444,12 @@ public final class MainActivity extends AppCompatActivity {
 //         Reset the displayed fields to default values. For you to finish!
 
         if (resetInfo) {
-
-            photoView.setVisibility(0);
+            ImageView cat = findViewById(R.id.cat);
+            ImageView dog = findViewById(R.id.dog);
+            TextView textView = findViewById(R.id.jsonResult);
+            cat.setVisibility(View.GONE);
+            dog.setVisibility(View.GONE);
+            textView.setVisibility(View.GONE);
         }
 
     }
