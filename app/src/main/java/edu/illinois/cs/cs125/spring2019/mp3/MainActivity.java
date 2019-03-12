@@ -32,10 +32,12 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -138,6 +140,11 @@ public final class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     REQUEST_WRITE_STORAGE);
         }
+
+        ImageView cat = findViewById(R.id.cat);
+        cat.setVisibility(View.INVISIBLE);
+        ImageView dog = findViewById(R.id.dog);
+        dog.setVisibility(View.INVISIBLE);
     }
 
     /**
@@ -323,11 +330,25 @@ public final class MainActivity extends AppCompatActivity {
         /*
          * Update the UI to display the string.
          */
+//        textView.setText(description);
 
         /*
          * Add code here to show the caption, show or hide the dog and cat icons,
          * and deal with Rick.
          */
+        ImageView cat = findViewById(R.id.cat);
+        ImageView dog = findViewById(R.id.dog);
+        if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
+            cat.setVisibility(View.VISIBLE);
+        } else {
+            cat.setVisibility(View.INVISIBLE);
+        }
+        if (RecognizePhoto.isADog(jsonResult, RECOGNITION_THRESHOLD)) {
+            dog.setVisibility(View.VISIBLE);
+        } else {
+            dog.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     /** Current bitmap we are working with. */
@@ -423,8 +444,8 @@ public final class MainActivity extends AppCompatActivity {
 //         Reset the displayed fields to default values. For you to finish!
 
         if (resetInfo) {
-            enableOrDisableButtons(false);
-            currentBitmap = null;
+
+            photoView.setVisibility(0);
         }
 
     }
