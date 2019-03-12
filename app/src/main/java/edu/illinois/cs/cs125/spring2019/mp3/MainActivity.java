@@ -336,6 +336,7 @@ public final class MainActivity extends AppCompatActivity {
          * Add code here to show the caption, show or hide the dog and cat icons,
          * and deal with Rick.
          */
+        textView.setVisibility(View.VISIBLE);
         ImageView cat = findViewById(R.id.cat);
         ImageView dog = findViewById(R.id.dog);
         if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
