@@ -330,7 +330,7 @@ public final class MainActivity extends AppCompatActivity {
         /*
          * Update the UI to display the string.
          */
-//        textView.setText(description);
+        textView.setText(description);
 
         /*
          * Add code here to show the caption, show or hide the dog and cat icons,
