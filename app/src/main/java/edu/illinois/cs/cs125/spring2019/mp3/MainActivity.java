@@ -337,6 +337,7 @@ public final class MainActivity extends AppCompatActivity {
          * and deal with Rick.
          */
         textView.setVisibility(View.VISIBLE);
+
         ImageView cat = findViewById(R.id.cat);
         ImageView dog = findViewById(R.id.dog);
         if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
@@ -450,7 +451,7 @@ public final class MainActivity extends AppCompatActivity {
             TextView textView = findViewById(R.id.jsonResult);
             cat.setVisibility(View.GONE);
             dog.setVisibility(View.GONE);
-            textView.clearComposingText();
+//            textView.clearComposingText();
             textView.setVisibility(View.GONE);
         }
 
