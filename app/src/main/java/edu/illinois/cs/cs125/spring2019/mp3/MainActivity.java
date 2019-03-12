@@ -140,9 +140,11 @@ public final class MainActivity extends AppCompatActivity {
         }
 
         ImageView cat = findViewById(R.id.cat);
-        cat.setVisibility(View.INVISIBLE);
+        cat.setVisibility(View.GONE);
         ImageView dog = findViewById(R.id.dog);
-        dog.setVisibility(View.INVISIBLE);
+        dog.setVisibility(View.GONE);
+        TextView textView = findViewById(R.id.jsonResult);
+        textView.setVisibility(View.GONE);
     }
 
     /**
@@ -448,6 +450,7 @@ public final class MainActivity extends AppCompatActivity {
             TextView textView = findViewById(R.id.jsonResult);
             cat.setVisibility(View.GONE);
             dog.setVisibility(View.GONE);
+            textView.clearComposingText();
             textView.setVisibility(View.GONE);
         }
 
