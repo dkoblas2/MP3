@@ -262,7 +262,7 @@ public final class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    /** Degrees for a 90 degree left rotation. */
+    /** Degrees for a 90 degreae left rotation. */
     private static final int ROTATE_LEFT = -90;
 
     /**
@@ -343,11 +343,9 @@ public final class MainActivity extends AppCompatActivity {
          * and deal with Rick.
          */
 
-
-
         ImageView cat = findViewById(R.id.cat);
         ImageView dog = findViewById(R.id.dog);
-        
+
         if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
             cat.setVisibility(View.VISIBLE);
         } else {
@@ -457,7 +455,9 @@ public final class MainActivity extends AppCompatActivity {
             ImageView cat = findViewById(R.id.cat);
             ImageView dog = findViewById(R.id.dog);
             TextView caption = findViewById(R.id.caption);
+            caption.setText("");
             TextView other = findViewById(R.id.jsonResult);
+            other.setText("");
             cat.setVisibility(View.GONE);
             dog.setVisibility(View.GONE);
             caption.setVisibility(View.GONE);
