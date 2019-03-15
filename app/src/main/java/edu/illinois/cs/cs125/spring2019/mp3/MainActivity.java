@@ -334,9 +334,8 @@ public final class MainActivity extends AppCompatActivity {
          * Update the UI to display the string.
          */
 
-        TextView desc = findViewById(R.id.jsonResult);
-        desc.setText(description);
-        desc.setVisibility(View.VISIBLE);
+        textView.setText(description);
+        textView.setVisibility(View.VISIBLE);
 
         TextView specs = findViewById(R.id.caption);
         specs.setText(RecognizePhoto.getCaption(jsonResult));
