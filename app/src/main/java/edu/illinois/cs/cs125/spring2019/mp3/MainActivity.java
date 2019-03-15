@@ -318,6 +318,7 @@ public final class MainActivity extends AppCompatActivity {
         JsonElement jsonElement = jsonParser.parse(jsonResult);
         String prettyJsonString = gson.toJson(jsonElement);
         textView.setText(prettyJsonString);
+        textView.setVisibility(View.VISIBLE);
 
         /*
          * Create a string describing the image type, width and height.
@@ -342,11 +343,11 @@ public final class MainActivity extends AppCompatActivity {
          * and deal with Rick.
          */
 
-        TextView other = findViewById(R.id.jsonResult);
-        other.setVisibility(View.VISIBLE);
+
 
         ImageView cat = findViewById(R.id.cat);
         ImageView dog = findViewById(R.id.dog);
+        
         if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
             cat.setVisibility(View.VISIBLE);
         } else {
