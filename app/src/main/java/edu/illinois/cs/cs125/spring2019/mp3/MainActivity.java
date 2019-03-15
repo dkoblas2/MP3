@@ -317,8 +317,8 @@ public final class MainActivity extends AppCompatActivity {
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(jsonResult);
         String prettyJsonString = gson.toJson(jsonElement);
-        textView.setText(prettyJsonString);
-        textView.setVisibility(View.VISIBLE);
+
+
 
         /*
          * Create a string describing the image type, width and height.
@@ -334,8 +334,12 @@ public final class MainActivity extends AppCompatActivity {
          * Update the UI to display the string.
          */
 
+        TextView desc = findViewById(R.id.jsonResult);
+        desc.setText(description);
+        desc.setVisibility(View.VISIBLE);
+
         TextView specs = findViewById(R.id.caption);
-        specs.setText(description);
+        specs.setText(RecognizePhoto.getCaption(jsonResult));
         specs.setVisibility(View.VISIBLE);
 
         /*
