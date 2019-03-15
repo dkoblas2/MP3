@@ -455,9 +455,9 @@ public final class MainActivity extends AppCompatActivity {
             ImageView cat = findViewById(R.id.cat);
             ImageView dog = findViewById(R.id.dog);
             TextView caption = findViewById(R.id.caption);
-            caption.setText("");
+            caption.setText(null);
             TextView other = findViewById(R.id.jsonResult);
-            other.setText("");
+            other.setText(null);
             cat.setVisibility(View.GONE);
             dog.setVisibility(View.GONE);
             caption.setVisibility(View.GONE);
