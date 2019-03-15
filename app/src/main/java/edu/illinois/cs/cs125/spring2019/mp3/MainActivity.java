@@ -459,7 +459,6 @@ public final class MainActivity extends AppCompatActivity {
             TextView other = findViewById(R.id.jsonResult);
             cat.setVisibility(View.GONE);
             dog.setVisibility(View.GONE);
-//            textView.clearComposingText();
             caption.setVisibility(View.GONE);
             other.setVisibility(View.GONE);
         }
