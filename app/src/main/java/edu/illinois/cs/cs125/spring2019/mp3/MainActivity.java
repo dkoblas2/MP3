@@ -143,6 +143,8 @@ public final class MainActivity extends AppCompatActivity {
         cat.setVisibility(View.GONE);
         ImageView dog = findViewById(R.id.dog);
         dog.setVisibility(View.GONE);
+        TextView caption = findViewById(R.id.caption);
+        caption.setVisibility(View.GONE);
         TextView textView = findViewById(R.id.jsonResult);
         textView.setVisibility(View.GONE);
     }
@@ -331,14 +333,17 @@ public final class MainActivity extends AppCompatActivity {
          * Update the UI to display the string.
          */
 
-        TextView caption = findViewById(R.id.caption);
-        caption.setText(description);
+        TextView specs = findViewById(R.id.caption);
+        specs.setText(description);
+        specs.setVisibility(View.VISIBLE);
 
         /*
          * Add code here to show the caption, show or hide the dog and cat icons,
          * and deal with Rick.
          */
-        caption.setVisibility(View.VISIBLE);
+
+        TextView other = findViewById(R.id.jsonResult);
+        other.setVisibility(View.VISIBLE);
 
         ImageView cat = findViewById(R.id.cat);
         ImageView dog = findViewById(R.id.dog);
@@ -451,10 +456,12 @@ public final class MainActivity extends AppCompatActivity {
             ImageView cat = findViewById(R.id.cat);
             ImageView dog = findViewById(R.id.dog);
             TextView caption = findViewById(R.id.caption);
+            TextView other = findViewById(R.id.jsonResult);
             cat.setVisibility(View.GONE);
             dog.setVisibility(View.GONE);
 //            textView.clearComposingText();
             caption.setVisibility(View.GONE);
+            other.setVisibility(View.GONE);
         }
 
     }
